@@ -1,0 +1,15 @@
+{
+  "name": "rustam/ewallet-server",
+  "authors": [
+    {
+      "name": "Rustam",
+      "email": "rustamergashev.sp@gmail.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Ewallet\\": "app/Ewallet/"
+    }
+  }
+}
