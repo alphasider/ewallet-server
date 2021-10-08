@@ -1,6 +1,6 @@
 <?php
 
-  namespace EWallet;
+  namespace Ewallet;
 
   class GenericParam {
     public string $paramKey;
