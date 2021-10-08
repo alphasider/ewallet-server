@@ -12,13 +12,10 @@
       return $params;
     }
 
-    public function GetInformation( $params ): GenericResult {
-      $result            = new GenericResult();
-      $result->errorMsg  = 'Classic error message';
-      $result->status    = 404;
-      $result->timeStamp = new DateTime( 'now' );
+    public function GetInformation( GetInformationArguments $params ): GetInformationResult {
+      $result             = new GetInformationResult();
+      $result->parameters = $params->parameters;
 
       return $result;
     }
-
   }

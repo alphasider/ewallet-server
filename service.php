@@ -8,9 +8,12 @@
 
   $soapServerOptions = [
     'classmap' => [
-      'PerformTransactionArguments' => PerformTransactionArguments::class,
       'GenericParam'                => GenericParam::class,
       'GenericResult'               => GenericResult::class,
+      'GenericArguments'            => GenericArguments::class,
+      'GetInformationResult'        => GetInformationResult::class,
+      'GetInformationArguments'     => GetInformationArguments::class,
+      'PerformTransactionArguments' => PerformTransactionArguments::class,
     ],
   ];
 
