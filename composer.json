@@ -6,10 +6,15 @@
       "email": "rustamergashev.sp@gmail.com"
     }
   ],
-  "require": {},
+  "require": {
+    "ext-soap": "*",
+    "ext-pdo": "*",
+    "vlucas/phpdotenv": "^5.3"
+  },
   "autoload": {
     "psr-4": {
-      "Ewallet\\": "app/Ewallet/"
+      "Ewallet\\": "app/Ewallet/",
+      "Tdely\\Luhn\\": "app/Lib/Luhn/"
     }
   }
 }
