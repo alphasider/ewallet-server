@@ -2,7 +2,7 @@
 
   namespace Ewallet;
 
-  class GetInformationArguments {
-    public int   $serviceId;
-    public array $parameters;
+  class GetInformationArguments extends GenericArguments {
+    public int $serviceId;
+    public $parameters;
   }
