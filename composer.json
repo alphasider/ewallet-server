@@ -9,12 +9,17 @@
   "require": {
     "ext-soap": "*",
     "ext-pdo": "*",
-    "vlucas/phpdotenv": "^5.3"
+    "vlucas/phpdotenv": "^5.3",
+    "guzzlehttp/guzzle": "^7.3",
+    "ext-json": "*"
   },
   "autoload": {
     "psr-4": {
       "Ewallet\\": "app/Ewallet/",
       "Tdely\\Luhn\\": "app/Lib/Luhn/"
     }
+  },
+  "require-dev": {
+    "symfony/var-dumper": "^5.3"
   }
 }

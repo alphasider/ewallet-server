@@ -4,7 +4,7 @@
 
   use Tdely\Luhn\Luhn as LuhnAlgorithm;
 
-  require '../../vendor/autoload.php';
+  require "{$_SERVER['DOCUMENT_ROOT']}/vendor/autoload.php";
 
   class Luhn {
     /**
@@ -25,13 +25,13 @@
     private static int $controlNumberLength = 1;
 
     /**
-     * Used to generate unique ewallet number by client id
+     * Used to generate unique wallet number by client id
      *
      * @param int $clientId
      *
      * @return int
      */
-    public static function generateEwalletNumber( int $clientId ): int {
+    public static function generateWalletNumber( int $clientId ): int {
       $eWalletNumber = self::$eWalletNumberPrefix . self::generateRandomNumberByUniqueId( $clientId );
 
       return LuhnAlgorithm::create( $eWalletNumber );
@@ -40,12 +40,12 @@
     /**
      * Facade for original algorithm validation method
      *
-     * @param int $ewalletNumber
+     * @param int $walletNumber
      *
      * @return bool
      */
-    public static function validateEwalletNumber( int $ewalletNumber ): bool {
-      return LuhnAlgorithm::isValid( $ewalletNumber );
+    public static function validateWalletNumber( int $walletNumber ): bool {
+      return LuhnAlgorithm::isValid( $walletNumber );
     }
 
     /**
@@ -63,7 +63,7 @@
       $maxRandomNumber               = '';
 
       while ( $randomNumbersLengthToGenerate > 0 ) {
-        // The "magic" numbers '1' and '9' are used to achieve something like this: rand(11111, 99999)
+        // The "magic" numbers '1' and '9' are used to achieve fixed length of min and max values something like this: rand(11111, 99999)
         $minRandomNumber .= '1';
         $maxRandomNumber .= '9';
         $randomNumbersLengthToGenerate--;
@@ -72,4 +72,3 @@
       return rand( $minRandomNumber, $maxRandomNumber );
     }
   }
-  var_dump(Luhn::validateEwalletNumber(999411712013591));

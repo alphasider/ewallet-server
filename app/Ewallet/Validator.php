@@ -25,7 +25,11 @@
       $username = filter_var( $username, FILTER_SANITIZE_STRING );
       $password = filter_var( $password, FILTER_SANITIZE_STRING );
 
-      $queryToCheck = "SELECT * FROM clients WHERE username = :username AND password = :password";
+      $queryToCheck = "SELECT clients.client_id, name, username, traffic, password, wallet_number, phone, balance
+                       FROM client_wallets
+                               JOIN clients ON client_wallets.client_id = clients.client_id
+                               JOIN wallets ON client_wallets.client_id = wallets.id
+                       WHERE username = :username AND password = :password";
       $stmt         = ( new Database )->connect()->prepare( $queryToCheck );
       $stmt->bindParam( ':username', $username );
       $stmt->bindParam( ':password', $password );
@@ -45,5 +49,16 @@
       }
 
       return [ 'status' => 'succeed', 'payload' => $result ];
+    }
+
+    /**
+     * Used to achieve only one entry point to validation methods
+     *
+     * @param int $walletNumber
+     *
+     * @return bool
+     */
+    public static function validateWalletNumber( int $walletNumber ): bool {
+      return Luhn::validateWalletNumber( $walletNumber );
     }
   }
