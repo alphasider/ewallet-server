@@ -10,10 +10,8 @@
   class Wallet {
     private int $depositLimit = 124499999;
 
-    // TODO: Make stubs for other methods
-
     /**
-     * FIXME: The method is not completed yet
+     * TODO: This methods requires refactoring
      *
      * @param PerformTransactionArguments $params
      *
@@ -117,4 +115,6 @@
 
       return $result;
     }
+
+    // TODO: Make stubs for other methods
   }

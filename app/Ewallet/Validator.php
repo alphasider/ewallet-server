@@ -13,6 +13,8 @@
     }
 
     /**
+     * TODO: Make done this method
+     *
      * @throws GuzzleException
      */
     public static function validatePhoneNumber( string $phoneNumber ) {
