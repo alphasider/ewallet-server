@@ -3,9 +3,14 @@
 
   namespace Ewallet;
 
+  use Dotenv\Dotenv;
   use SoapServer;
 
   require 'vendor/autoload.php';
+
+  $dotenv = Dotenv::createMutable( __DIR__ );
+  $dotenv->load();
+  $wsdlFile = $_ENV[ 'WSDL_FILE' ];
 
   $soapServerOptions = [
     'classmap' => [
@@ -18,7 +23,7 @@
     ],
   ];
 
-  $server = new SoapServer( 'specification/ProviderWebService.wsdl', $soapServerOptions );
+  $server = new SoapServer( $wsdlFile, $soapServerOptions );
 
   $server->setClass( Wallet::class );
   $server->handle();
